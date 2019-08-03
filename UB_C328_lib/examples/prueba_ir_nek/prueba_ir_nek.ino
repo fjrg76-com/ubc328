@@ -48,7 +48,7 @@ void setup()
 
 	IR_Nek_init( &ir, IR_PIN, IR_ADDRESS );
 
-	PcInt::attachInterrupt( IR_PIN, eint_isr, FALLING );
+	PcInt::attachInterrupt( IR_Nek_get_pin( &ir ), eint_isr, FALLING );
 
 //	Serial.begin( 115200 );
 }
