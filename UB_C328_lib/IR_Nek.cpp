@@ -175,11 +175,9 @@ bool IR_Nek_read( IR_Nek* self, uint8_t* data_val )
 
 	bool no_error = false;
 
-	if( ( data[0] ^ data[1] ) == 0xff and (data[2] ^ data[3] ) == 0xff ){
-		if( data[ 0 ] == self->address ){
-			*data_val = data[2];
-			no_error = true;
-		}
+	if( ( data[0] ^ data[1] ) == 0xff and (data[2] ^ data[3] ) == 0xff and data[ 0 ] == self->address ){
+		*data_val = data[2];
+		no_error = true;
 	}
 
 	self->done = false;
